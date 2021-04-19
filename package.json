@@ -1,0 +1,82 @@
+{
+  "name": "seq-image-player",
+  "version": "0.1.0",
+  "description": "seq-image-player",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "test": "jest",
+    "release": "npm test && npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags",
+    "lint": "eslint -c .eslintrc.js \"src/**/*.ts\"",
+    "lint:fix": "eslint -c .eslintrc.js 'src/**/*.ts' --fix",
+    "build:self": "rollup -c config/rollup.config.js",
+    "build:esm": "rollup -c config/rollup.config.esm.js",
+    "build:aio": "rollup -c config/rollup.config.aio.js",
+    "build:aio.min": "cross-env NODE_ENV=production npm run build:aio",
+    "build": "npm run clean && npm run build:self && npm run build:esm && npm run build:aio && npm run build:aio.min",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "author": "onthia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/onthia/seq-image-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onthia/seq-image-player/issues"
+  },
+  "files": [
+    "/dist",
+    "*.d.ts"
+  ],
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/html": "^6.2.8",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.0.3",
+    "cross-env": "7.0.3",
+    "cz-conventional-changelog": "^3.1.0",
+    "es5-shim": "4.5.15",
+    "eslint": "^7.24.0",
+    "eslint-plugin-jest": "^24.3.5",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.0.8",
+    "rimraf": "3.0.2",
+    "rollup": "2.45.2",
+    "rollup-plugin-typescript2": "0.30.0",
+    "rollup-plugin-uglify": "6.0.4",
+    "source-map-support": "0.5.19",
+    "ts-node": "9.1.1",
+    "tslib": "2.2.0",
+    "typescript": "4.2.4"
+  },
+  "dependencies": {},
+  "lint-staged": {
+    "./src/**/*.{j,t}s": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
