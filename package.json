@@ -1,6 +1,6 @@
 {
   "name": "seq-image-player",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "seq-image-player",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "test": "jest",
-    "release": "npm test && npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags",
+    "release": "npm test && npm run build && git commit -am %npm_package_version% && git tag %npm_package_version% && git push && git push --tags",
     "lint": "eslint -c .eslintrc.js \"src/**/*.ts\"",
     "lint:fix": "eslint -c .eslintrc.js 'src/**/*.ts' --fix",
     "build:self": "rollup -c config/rollup.config.js",
@@ -21,7 +21,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "commit": "cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "show": "echo $npm_package_version && echo %npm_package_version%"
   },
   "author": "onthia",
   "license": "MIT",

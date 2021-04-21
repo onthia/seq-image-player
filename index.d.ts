@@ -7,6 +7,7 @@ export interface SeqImagePlayerOption {
     wildcardLength: number;
 }
 export declare class SeqImagePlayer {
+    name: string;
     frame: number;
     frameStep: number;
     imageNumber: number;

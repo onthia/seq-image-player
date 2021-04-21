@@ -14,7 +14,6 @@ export interface SeqImagePlayerOption {
 }
 
 export class SeqImagePlayer {
-  name = 'seqImagePlayer';
   frame: number; // 播放帧数
   frameStep: number; // 跳帧数
   imageNumber: number; // 图片数量
@@ -36,8 +35,6 @@ export class SeqImagePlayer {
     this.frameStep = frameStep;
     this.imageNumber = imageNumber;
     if (!container) return;
-
-    console.log('gogogo');
 
     this.container = container;
     this.pathTemplate = pathTemplate;
