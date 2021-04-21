@@ -88,29 +88,21 @@ export const methods = {
     description: '播放',
     table: {
       category: 'Methods',
-
-      type: {
-        summary: '播放',
-      },
     },
   },
   'destroy()': {
     description: '销毁',
     table: {
       category: 'Methods',
-
-      type: {
-        summary: '销毁',
-      },
     },
   },
   'resize()': {
-    description: '重新适配容器',
+    description: '更新画布尺寸',
     table: {
       category: 'Methods',
 
       type: {
-        summary: '重新适配容器',
+        summary: '更新画布尺寸以适配容器',
       },
     },
   },
