@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/html';
 import { api, methods } from './SeqImagePlayer';
-import { SeqImagePlayer, SeqImagePlayerOption } from '../../src';
+import SeqImagePlayer, { SeqImagePlayerOption } from '../../src';
 
 export default {
   title: 'Example/SeqImagePlayer',

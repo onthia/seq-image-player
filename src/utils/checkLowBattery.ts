@@ -22,7 +22,6 @@ export default (): Promise<boolean> => {
     const fn = () => {
       setTimeout(() => {
         const now = Date.now();
-        console.log(now - lastTime);
         checkResult.push(checkInterval(now - lastTime));
         lastTime = now;
         checkTime += 1;

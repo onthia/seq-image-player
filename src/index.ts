@@ -11,7 +11,7 @@ export interface SeqImagePlayerOption {
   autoplay?: boolean;
 }
 
-export class SeqImagePlayer {
+export default class SeqImagePlayer {
   frame: number; // 播放帧数
   frameStep: number; // 跳帧数
   container: HTMLElement; // 容器dom

@@ -13,10 +13,9 @@ module.exports = {
   output: {
     file: prod ? 'dist/index.aio.min.js' : 'dist/index.aio.js',
     format: 'umd',
-    // When export and export default are not used at the same time, set legacy to true.
-    // legacy: true,
     name: common.name,
     banner: common.banner,
+    exports: 'default',
   },
   plugins: [
     nodeResolve({

@@ -35,20 +35,47 @@ $ npm install --save seq-image-player
 如果你是 node 环境
 
 ```js
-var base = require('seq-image-player');
+const SeqImagePlayer = require('seq-image-player');
+import SeqImagePlayer from 'seq-image-player';
+const container = document.createElement('div');
+const option = {
+  imageSource: [
+    'https://xxx.com/001.png',
+    //...
+  ],
+  container,
+};
+new SeqImagePlayer(option);
 ```
 
 如果你是 webpack 等环境
 
 ```js
-import base from 'seq-image-player';
+import SeqImagePlayer from 'seq-image-player';
+const container = document.createElement('div');
+const option = {
+  imageSource: [
+    'https://xxx.com/001.png',
+    //...
+  ],
+  container,
+};
+new SeqImagePlayer(option);
 ```
 
 如果你是 requirejs 环境
 
 ```js
-requirejs(['node_modules/seq-image-player/dist/index.aio.js'], function (base) {
-  // xxx
+requirejs(['node_modules/seq-image-player/dist/index.aio.js'], function (SeqImagePlayer) {
+  const container = document.createElement('div');
+  const option = {
+    imageSource: [
+      'https://xxx.com/001.png',
+      //...
+    ],
+    container,
+  };
+  new SeqImagePlayer(option);
 });
 ```
 
@@ -56,6 +83,17 @@ requirejs(['node_modules/seq-image-player/dist/index.aio.js'], function (base) {
 
 ```html
 <script src="node_modules/seq-image-player/dist/index.aio.js"></script>
+<script>
+  const container = document.createElement('div');
+  const option = {
+    imageSource: [
+      'https://xxx.com/001.png',
+      //...
+    ],
+    container,
+  };
+  new SeqImagePlayer(option);
+</script>
 ```
 
 ## :kissing_heart: 贡献者指南

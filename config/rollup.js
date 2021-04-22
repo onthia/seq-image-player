@@ -22,7 +22,7 @@ function getCompiler(opt) {
 }
 
 export default {
-  name: 'seq-image-player',
+  name: 'SeqImagePlayer',
   banner,
   getCompiler,
 };

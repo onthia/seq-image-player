@@ -5,7 +5,7 @@ export interface SeqImagePlayerOption {
     imageSource: string[];
     autoplay?: boolean;
 }
-export declare class SeqImagePlayer {
+export default class SeqImagePlayer {
     frame: number;
     frameStep: number;
     container: HTMLElement;
