@@ -1,22 +1,18 @@
 export interface SeqImagePlayerOption {
     frame?: number;
     frameStep?: number;
-    imageNumber: number;
     container: HTMLElement;
-    pathTemplate: string;
-    wildcardLength: number;
+    imageSource: string[];
+    autoplay?: boolean;
 }
 export declare class SeqImagePlayer {
-    name: string;
     frame: number;
     frameStep: number;
-    imageNumber: number;
     container: HTMLElement;
+    imageSource: string[];
     canvas: HTMLCanvasElement;
     requestId: number;
-    pathTemplate: string;
-    wildcardLength: number;
-    constructor({ frame, frameStep, imageNumber, container, pathTemplate, wildcardLength, }: SeqImagePlayerOption);
+    constructor({ frame, frameStep, container, imageSource, autoplay }: SeqImagePlayerOption);
     destroy: () => void;
     handleResize: () => void;
     handlePlay: () => Promise<void>;

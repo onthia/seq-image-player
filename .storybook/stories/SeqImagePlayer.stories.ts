@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/html';
-import { parameters, methods } from './SeqImagePlayer';
+import { api, methods } from './SeqImagePlayer';
 import { SeqImagePlayer, SeqImagePlayerOption } from '../../src';
 
 export default {
@@ -9,24 +9,22 @@ export default {
 export interface SeqImagePlayerDemoProps {
   frame: number;
   frameStep: number;
-  imageNumber: number;
-  pathTemplate: string;
-  wildcardLength: number;
+  imageSource: string[];
+  autoplay: boolean;
 }
 
 const Template: Story<SeqImagePlayerDemoProps> = (args) => {
-  const { pathTemplate, imageNumber, wildcardLength, frame, frameStep } = args;
+  const { imageSource, frame, frameStep, autoplay } = args;
 
   const container = document.createElement('div');
   container.style.height = '400px';
 
   const option: SeqImagePlayerOption = {
     container,
-    pathTemplate,
-    imageNumber,
-    wildcardLength,
+    imageSource,
     frame,
     frameStep,
+    autoplay,
   };
   new SeqImagePlayer(option);
 
@@ -35,4 +33,4 @@ const Template: Story<SeqImagePlayerDemoProps> = (args) => {
 
 export const Simple = Template.bind({});
 
-Simple.argTypes = { ...parameters, ...methods };
+Simple.argTypes = { ...api, ...methods };

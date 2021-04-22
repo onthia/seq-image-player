@@ -1,8 +1,20 @@
-export const parameters = {
+const getDemoImage = () => {
+  const wildcardTemplate = 'https://workvideo.vvtechnology.cn/%E5%BA%8F%E5%88%97%E5%9B%BE750-%20600_20s_19Mar{*}.jpg';
+  const wildcardLength = 4;
+  const numberRange = [0, 20];
+  const imagesPath = [];
+  for (let i = numberRange[0]; i < numberRange[1]; i += 1) {
+    const imageIndex = String(Math.pow(10, wildcardLength) + i).substr(1);
+    imagesPath.push(wildcardTemplate.replace(/{\*}/, imageIndex));
+  }
+  return imagesPath;
+};
+
+export const api = {
   container: {
     description: '容器dom',
     table: {
-      category: 'Parameters',
+      category: 'Api',
     },
   },
   frame: {
@@ -10,11 +22,11 @@ export const parameters = {
       type: 'number',
     },
     description: '帧数',
-    defaultValue: 60,
+    defaultValue: 30,
     table: {
-      category: 'Parameters',
+      category: 'Api',
       defaultValue: {
-        summary: 60,
+        summary: 30,
       },
       type: {
         summary: '播放序列图的帧数',
@@ -29,7 +41,7 @@ export const parameters = {
     description: '跳帧数',
     defaultValue: 1,
     table: {
-      category: 'Parameters',
+      category: 'Api',
 
       defaultValue: {
         summary: 1,
@@ -39,45 +51,30 @@ export const parameters = {
       },
     },
   },
-  imageNumber: {
+  autoplay: {
     control: {
-      type: 'number',
+      type: 'boolean',
     },
-    description: '图片数量',
-    defaultValue: 50,
+    description: '是否自动播放',
+    defaultValue: true,
     table: {
-      category: 'Parameters',
+      category: 'Api',
 
-      type: {
-        summary: '播放序列图的数量',
+      defaultValue: {
+        summary: true,
       },
     },
   },
-  pathTemplate: {
+  imageSource: {
     control: {
-      type: 'text',
+      type: 'object',
     },
-    description: '图片路径模板',
-    defaultValue: 'https://workvideo.vvtechnology.cn/%E5%BA%8F%E5%88%97%E5%9B%BE750-%20600_20s_19Mar{*}.jpg',
+    description: '图片资源',
+    defaultValue: getDemoImage(),
     table: {
-      category: 'Parameters',
-
+      category: 'Api',
       type: {
-        summary: '轮询播放的图片地址，{*}作为占位符，执行时会被数字替代',
-      },
-    },
-  },
-  wildcardLength: {
-    control: {
-      type: 'number',
-    },
-    description: '占位符长度',
-    defaultValue: 4,
-    table: {
-      category: 'Parameters',
-
-      type: {
-        summary: '按照占位符长度在索引值前面补0',
+        summary: '图片路径的数组',
       },
     },
   },
@@ -88,29 +85,21 @@ export const methods = {
     description: '播放',
     table: {
       category: 'Methods',
-
-      type: {
-        summary: '播放',
-      },
     },
   },
   'destroy()': {
     description: '销毁',
     table: {
       category: 'Methods',
-
-      type: {
-        summary: '销毁',
-      },
     },
   },
   'resize()': {
-    description: '重新适配容器',
+    description: '更新画布尺寸',
     table: {
       category: 'Methods',
 
       type: {
-        summary: '重新适配容器',
+        summary: '更新画布尺寸以适配容器',
       },
     },
   },
