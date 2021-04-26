@@ -7,14 +7,14 @@ export default {
 } as Meta;
 
 export interface SeqImagePlayerDemoProps {
-  frame: number;
+  fps: number;
   frameStep: number;
   imageSource: string[];
   autoplay: boolean;
 }
 
 const Template: Story<SeqImagePlayerDemoProps> = (args) => {
-  const { imageSource, frame, frameStep, autoplay } = args;
+  const { imageSource, fps, frameStep, autoplay } = args;
 
   const container = document.createElement('div');
   container.style.height = '400px';
@@ -22,7 +22,7 @@ const Template: Story<SeqImagePlayerDemoProps> = (args) => {
   const option: SeqImagePlayerOption = {
     container,
     imageSource,
-    frame,
+    fps,
     frameStep,
     autoplay,
   };

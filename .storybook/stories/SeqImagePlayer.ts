@@ -17,7 +17,7 @@ export const api = {
       category: 'Api',
     },
   },
-  frame: {
+  fps: {
     control: {
       type: 'number',
     },
