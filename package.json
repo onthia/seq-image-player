@@ -1,6 +1,6 @@
 {
   "name": "seq-image-player",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "seq-image-player",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.esm.js",
