@@ -1,6 +1,7 @@
+import React from 'react';
 import { Story, Meta } from '@storybook/html';
 import { api, methods } from './SeqImagePlayer';
-import SeqImagePlayer, { SeqImagePlayerOption } from '../../src';
+import SeqImagePlayer, { ISeqImagePlayerOption } from '../../src';
 
 export default {
   title: 'Example/SeqImagePlayer',
@@ -19,7 +20,7 @@ const Template: Story<SeqImagePlayerDemoProps> = (args) => {
   const container = document.createElement('div');
   container.style.height = '400px';
 
-  const option: SeqImagePlayerOption = {
+  const option: ISeqImagePlayerOption = {
     container,
     imageSource,
     fps,
@@ -27,7 +28,6 @@ const Template: Story<SeqImagePlayerDemoProps> = (args) => {
     autoplay,
   };
   new SeqImagePlayer(option);
-
   return container;
 };
 
