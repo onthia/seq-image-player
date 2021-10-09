@@ -2,7 +2,7 @@
 
 // 参数全是基于经验
 const OFFSET = 4;
-const CHECK_TIME = 20;
+const CHECK_TIME = 30;
 const NEED_PASS_RESULT_PERCENTAGE = 0.4;
 const INTERVAL = 16;
 

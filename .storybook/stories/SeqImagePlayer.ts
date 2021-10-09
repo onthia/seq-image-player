@@ -4,7 +4,7 @@ const getDemoImage = () => {
   const numberRange = [0, 20];
   const imagesPath = [];
   for (let i = numberRange[0]; i < numberRange[1]; i += 1) {
-    const imageIndex = String(Math.pow(10, wildcardLength) + i).substr(1);
+    const imageIndex = String(10 ** wildcardLength + i).substr(1);
     imagesPath.push(wildcardTemplate.replace(/{\*}/, imageIndex));
   }
   return imagesPath;

@@ -49,6 +49,9 @@ export default class SeqImagePlayer {
 
   destroy = (): void => {
     cancelAnimationFrame(this.requestId);
+    if (this.canvas) {
+      this.canvas.remove();
+    }
   };
 
   resize = (): void => {
